@@ -5,6 +5,7 @@ import { FocusHistory } from './src/features/focus/focusHistory'
 import { colors } from './src/utils/colors';
 import { spacing } from './src/utils/sizes';
 import { Timer } from './src/features/timer/timer';
+import  AsyncStorage  from '@react-native-async-storage/async-storage'
 
 const STATUS = {
   COMPLETED: 1,
@@ -30,10 +31,36 @@ const App = () => {
   }
 
   const onClear = () => {
-    // TODO
+    setFocusHistory([])
   }
 
+  const saveFocusHistory = async () => {
+    try {
+      await AsyncStorage.setItem('focusHistory', JSON.stringify(focusHistory))
 
+    } catch (e) {
+      console.log(e)
+    }
+  }
+  const loadFocusHistory = async () => {
+    try {
+      const history = await AsyncStorage.getItem('focusHistory')
+      if (history && JSON.parse(history).length) {
+        setFocusHistory(JSON.parse(history))
+      }
+    } catch (e) {
+      console.log(e)
+    }
+  }
+
+  // [] means it renders at each mount of component
+  useEffect(() => {
+    loadFocusHistory()
+  }, [])
+
+  useEffect(() => {
+    saveFocusHistory()
+  }, [focusHistory])
 
   return (
     <View style={styles.container}>
