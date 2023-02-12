@@ -9,7 +9,7 @@ import { CountDown } from '../../components/CountDown';
 import { RoundedButton } from '../../components/RoundedButton';
 import { Timing } from './timing';
 
-export const Timer = ({ focusSubject }) => {
+export const Timer = ({ focusSubject, onTimerEnd }) => {
   useKeepAwake()
 
   const DEFAULT_TIME = 0.1
@@ -40,6 +40,9 @@ export const Timer = ({ focusSubject }) => {
     setMinutes(DEFAULT_TIME);
     setProgress(1);
     setIsPaused(true)
+    onTimerEnd()
+    
+    
   }
 
   return (

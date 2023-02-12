@@ -7,10 +7,15 @@ import { Timer } from './src/features/timer/timer';
 
 const App = () => {
   const [focusSubject, setFocusSubject] = useState(null);
+
+  const onTimerEnd=()=>{
+    setFocusSubject(null)
+  }
+  
   return (
     <View style={styles.container}>
       {focusSubject ? (
-        <Timer focusSubject={focusSubject} />
+        <Timer focusSubject={focusSubject} onTimerEnd={onTimerEnd}/>
       ) : (
         <Focus addSubject={setFocusSubject} />
       )}
