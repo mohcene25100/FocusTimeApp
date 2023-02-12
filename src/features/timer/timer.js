@@ -9,7 +9,7 @@ import { CountDown } from '../../components/CountDown';
 import { RoundedButton } from '../../components/RoundedButton';
 import { Timing } from './timing';
 
-export const Timer = ({ focusSubject, onTimerEnd }) => {
+export const Timer = ({ focusSubject, onTimerEnd, clearSubject }) => {
   useKeepAwake()
 
   const DEFAULT_TIME = 0.1
@@ -41,8 +41,8 @@ export const Timer = ({ focusSubject, onTimerEnd }) => {
     setProgress(1);
     setIsPaused(true)
     onTimerEnd()
-    
-    
+
+
   }
 
   return (
@@ -74,6 +74,9 @@ export const Timer = ({ focusSubject, onTimerEnd }) => {
           <RoundedButton title="pause" onPress={onPress} />
         )}
       </View>
+      <View style={styles.cancelButton}>
+        <RoundedButton title='-' size={50} onPress={clearSubject}/>
+      </View>
     </View>
   );
 };
@@ -101,4 +104,8 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
   },
+  cancelButton:{
+    paddingLeft:spacing.md,
+    paddingBottom:spacing.md
+  }
 });
