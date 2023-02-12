@@ -34,7 +34,7 @@ export const FocusHistory = ({ focusHistory, onClear }) => {
 						data={focusHistory}
 						renderItem={HistoryItem}
 					/>
-					<RoundedButton size={75} title={'clear'} onPress={clearHistory} />
+					<RoundedButton size={75} title={'Clear'} onPress={clearHistory} />
 				</>
 			) : (
 				<Text style={styles.title}>Your History Is Empty !</Text>
