@@ -18,15 +18,13 @@ export const CountDown = ({
   const interval = useRef(null)
   
   const countDown = () => {
+    // Return time left in millis
     setMillis((time) => {
       if (time === 0) {
         clearInterval(interval.current)
-        onEnd()
         return time;
       }
       let timeLeft = time - 1000;
-      let min = minutesToMillis(minutes)
-      onProgress(timeLeft / min)
       return timeLeft
     });
   };
@@ -38,14 +36,21 @@ export const CountDown = ({
 
   useEffect(() => {
     if (isPaused) {
-
       return
     }
-
     interval.current = setInterval(countDown, 1000)
-
     return () => clearInterval(interval.current)
   }, [isPaused])
+
+// Render each second 
+// Update the external components in useEffect to not get warnings
+// onPogress located in timer.js
+// onEnd located in timer.js but has external component to app.js
+  useEffect(()=>{
+    onProgress(millis / minutesToMillis(minutes))
+    if(millis===0)
+      onEnd()
+  },[millis])
 
   return (
     <View style={styles.container}>

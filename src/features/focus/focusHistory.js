@@ -14,7 +14,7 @@ export const FocusHistory = ({ focusHistory, onClear }) => {
 		return (
 			<View style={styles.item}>
 				<Text style={styles.historyItems(item.status)}>
-				 {JSON.stringify(item.subject)}
+					{JSON.stringify(item.subject)}
 
 				</Text>
 			</View>
@@ -33,9 +33,8 @@ export const FocusHistory = ({ focusHistory, onClear }) => {
 					<FlatList
 						data={focusHistory}
 						renderItem={HistoryItem}
-
 					/>
-					<RoundedButton size={50} title={'clear'} onPress={clearHistory}/> 
+					<RoundedButton size={75} title={'clear'} onPress={clearHistory} />
 				</>
 			) : (
 				<Text style={styles.title}>Your History Is Empty !</Text>

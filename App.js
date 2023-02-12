@@ -5,7 +5,7 @@ import { FocusHistory } from './src/features/focus/focusHistory'
 import { colors } from './src/utils/colors';
 import { spacing } from './src/utils/sizes';
 import { Timer } from './src/features/timer/timer';
-import  AsyncStorage  from '@react-native-async-storage/async-storage'
+import AsyncStorage from '@react-native-async-storage/async-storage'
 
 const STATUS = {
   COMPLETED: 1,
@@ -18,7 +18,7 @@ const App = () => {
   const [focusHistory, setFocusHistory] = useState([])
 
   const addFocusSubjectHistoryWithStatus = (subject, status) => {
-    setFocusHistory([...focusHistory, { subject, status }])
+    setFocusHistory([...focusHistory, { key: String(focusHistory.length + 1), subject, status }])
   }
 
   const onTimerEnd = () => {
