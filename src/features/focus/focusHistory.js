@@ -18,36 +18,42 @@ export const FocusHistory = ({ focusHistory, onClear }) => {
             </Text>
         )
     }
-    console.log(focusHistory)
 
     return (
-        <SafeAreaView style={styles.container}>
-            {/* focusHistory greater than zero  */}
-            {!!focusHistory.length ? (
-                <>
-                    <Text style={styles.title}>Our History of Focus Things</Text>
-                    <FlatList
-                        style={{ width: '100%', height: '100%' }}
-                        contentContainerStyle={{ flex: 1, alignItems: 'center' }}
-                        data={focusHistory}
-                        renderItem={HistoryItem}
+        <>
+            <SafeAreaView style={styles.container}>
+                {/* focusHistory greater than zero  */}
+                {!!focusHistory.length ? (
+                    <View  style={{ flex: 1 }}>
+
+                        <Text style={styles.title}>Our History of Focus Things
+                        </Text>
+                        {/* !!!!!  Doesn't SCROLL !!!!! */}
+
+                        <FlatList
+                            contentContainerStyle={{  alignItems: 'center' }}
+                            data={focusHistory}
+                            renderItem={HistoryItem}
 
 
-                    />
-                </>
+                        />
 
-            ):(
-               <Text style={styles.title}>Your History Is Empty !</Text> 
-            )}
+                        
+                    </View>
+
+                ) : (
+                    <Text style={styles.title}>Your History Is Empty !</Text>
+                )}
 
 
-        </SafeAreaView>
+            </SafeAreaView>
+        </>
     )
 }
 
 const styles = StyleSheet.create({
     container: {
-        flex: 0.5,
+        flex: 1,
         alignItems: 'center'
     },
     historyItems: (status) => ({
