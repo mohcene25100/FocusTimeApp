@@ -6,8 +6,8 @@ import { fontSizes, spacing } from '../../utils/sizes';
 import { colors } from '../../utils/colors';
 
 export const Focus = ({ addSubject }) => {
-  const [temp, setTemp] = useState(null);
-  const onPress = () => addSubject(temp);
+  const [subject, setSubject] = useState(null);
+  const onPress = () => addSubject(subject);
   return (
     <View style={styles.container}>
       <View style={styles.titleContainer}>
@@ -19,7 +19,7 @@ export const Focus = ({ addSubject }) => {
               addSubject(nativeEvent.text);
             }}
             onChange={({ nativeEvent }) => {
-              setTemp(nativeEvent.text);
+              setSubject(nativeEvent.text);
             }}
           />
           <RoundedButton size={50} title="+" onPress={onPress} />
