@@ -29,7 +29,7 @@ const App = () => {
     setFocusSubject(null)
   }
 
-  const onClear=()=>{
+  const onClear = () => {
     // TODO
   }
 

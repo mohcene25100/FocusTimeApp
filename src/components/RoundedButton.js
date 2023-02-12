@@ -1,5 +1,5 @@
-import React,{useState} from 'react';
-import { TouchableOpacity,View, Text, StyleSheet } from 'react-native';
+import React, { useState } from 'react';
+import { TouchableOpacity, View, Text, StyleSheet } from 'react-native';
 import { spacing } from '../utils/sizes';
 
 export const RoundedButton = ({
@@ -8,7 +8,7 @@ export const RoundedButton = ({
   size = 125,
   ...props
 }) => {
- 
+
   return (
     <TouchableOpacity style={[styles(size).radius, style]} onPress={props.onPress} >
       <Text style={[styles(size).text, textStyle]}>{props.title}</Text>

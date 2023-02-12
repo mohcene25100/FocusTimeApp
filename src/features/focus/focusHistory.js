@@ -7,63 +7,66 @@ import { RoundedButton } from '../../components/RoundedButton'
 
 export const FocusHistory = ({ focusHistory, onClear }) => {
 
-    const clearHistory = () => {
-        onClear()
-    }
-    const HistoryItem = ({ item, index }) => {
-        return (
-            <Text style={styles.historyItems(item.status)}>
-                the subject {index} is {JSON.stringify(item.subject)}
+	const clearHistory = () => {
+		onClear()
+	}
+	const HistoryItem = ({ item, index }) => {
+		return (
+			<View style={styles.item}>
+				<Text style={styles.historyItems(item.status)}>
+					the subject {index} is {JSON.stringify(item.subject)}
 
-            </Text>
-        )
-    }
+				</Text>
+			</View>
 
-    return (
-        <>
-            <SafeAreaView style={styles.container}>
-                {/* focusHistory greater than zero  */}
-                {!!focusHistory.length ? (
-                    <View  style={{ flex: 1 }}>
+		)
+	}
 
-                        <Text style={styles.title}>Our History of Focus Things
-                        </Text>
-                        {/* !!!!!  Doesn't SCROLL !!!!! */}
+	return (
 
-                        <FlatList
-                            contentContainerStyle={{  alignItems: 'center' }}
-                            data={focusHistory}
-                            renderItem={HistoryItem}
+		<SafeAreaView style={styles.container}>
+			{/* focusHistory greater than zero  */}
+			{!!focusHistory.length ? (
+				<>
+					<Text style={styles.title}>Your History of FocusThings
+					</Text>
+					<FlatList
+						data={focusHistory}
+						renderItem={HistoryItem}
 
-
-                        />
-
-                        
-                    </View>
-
-                ) : (
-                    <Text style={styles.title}>Your History Is Empty !</Text>
-                )}
+					/>
+				</>
+			) : (
+				<Text style={styles.title}>Your History Is Empty !</Text>
+			)}
 
 
-            </SafeAreaView>
-        </>
-    )
+		</SafeAreaView>
+
+	)
 }
 
 const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        alignItems: 'center'
-    },
-    historyItems: (status) => ({
-        color: status > 1 ? 'red' : 'green',
-        fontSize: fontSizes.md,
-    }),
-    title: {
-        color: colors.white,
-        fontSize: fontSizes.md,
+	container: {
+		flex: 1,
+		alignItems: 'center'
+	},
+	historyItems: (status) => ({
+		color: status > 1 ? 'red' : 'green',
+		fontSize: fontSizes.md,
+		fontWeight: 'bold'
+	}),
+	title: {
+		color: colors.white,
+		fontSize: fontSizes.lg,
 
 
-    }
+	},
+	item: {
+		backgroundColor: colors.darkBlue,
+		padding: 20,
+		marginVertical: 8,
+		marginHorizontal: 16,
+		alignItems: 'center'
+	},
 })
