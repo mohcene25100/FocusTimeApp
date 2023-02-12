@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import { Text, View, StyleSheet } from 'react-native';
+import { Text, View, StyleSheet, Vibration, Platform } from 'react-native';
 import { ProgressBar } from 'react-native-paper';
-import { useKeepAwake} from 'expo-keep-awake'
+import { useKeepAwake } from 'expo-keep-awake'
 
 import { colors } from '../../utils/colors';
 import { fontSizes, spacing } from '../../utils/sizes';
@@ -11,9 +11,12 @@ import { Timing } from './timing';
 
 export const Timer = ({ focusSubject }) => {
   useKeepAwake()
+
+  const DEFAULT_TIME = 0.1
   const [isPaused, setIsPaused] = useState(false);
   const [progress, setProgress] = useState(1);
-  const [minutes, setMinutes] = useState(3);
+  const [minutes, setMinutes] = useState(DEFAULT_TIME);
+
   const onPress = () => setIsPaused((value) => !value);
   const onProgress = (progress) => setProgress(progress);
   const changeTime = (time) => {
@@ -21,6 +24,23 @@ export const Timer = ({ focusSubject }) => {
     setProgress(1);
     setIsPaused(true)
   };
+  const vibrate = () => {
+    if (Platform.OS === 'ios') {
+      const interval = setInterval(() => Vibration.vibrate(), 1000)
+      // To clear interval after 10 seconds (stop vibration after 10)
+      setTimeout(() => clearInterval(interval), 10000)
+    }
+    else {
+      Vibration.vibrate()
+    }
+
+  }
+  const onEnd = () => {
+    vibrate()
+    setMinutes(DEFAULT_TIME);
+    setProgress(1);
+    setIsPaused(true)
+  }
 
   return (
     <View style={styles.container}>
@@ -28,6 +48,7 @@ export const Timer = ({ focusSubject }) => {
         minutes={minutes}
         isPaused={isPaused}
         onProgress={onProgress}
+        onEnd={onEnd}
       />
       <View style={styles.title}>
         <Text style={styles.title}>Focusing on: </Text>
@@ -68,7 +89,7 @@ const styles = StyleSheet.create({
     color: colors.white,
     textAlign: 'center',
     fontWeight: 'bold',
-    fontSize:fontSizes.lg,
+    fontSize: fontSizes.lg,
   },
   switchButton: {
     flex: 0.2,

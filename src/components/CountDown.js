@@ -1,4 +1,4 @@
-import React, { useState, useEffect,useRef } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 
 import { spacing, fontSizes } from '../utils/sizes';
@@ -7,39 +7,45 @@ import { colors } from '../utils/colors';
 const minutesToMillis = (min) => min * 60 * 1000;
 const formatTime = (time) => (time < 10 ? `0${time}` : time);
 export const CountDown = ({
-   minutes,
-   isPaused,
-   onProgress,
-   }) => {
+  minutes,
+  isPaused,
+  onProgress,
+  onEnd,
+}) => {
   const [millis, setMillis] = useState(null);
   const minute = Math.floor(millis / 60 / 1000) % 60;
   const seconds = Math.floor(millis / 1000) % 60
-  const interval=useRef(null)
+  const interval = useRef(null)
+  
   const countDown = () => {
     setMillis((time) => {
       if (time === 0) {
+        clearInterval(interval.current)
+        onEnd()
         return time;
       }
-      let timeLeft=time - 1000;
-      let min=minutesToMillis(minutes)
-      onProgress(timeLeft/min)
+      let timeLeft = time - 1000;
+      let min = minutesToMillis(minutes)
+      onProgress(timeLeft / min)
       return timeLeft
     });
   };
- useEffect(()=>{
-   if(minutes)
+
+  useEffect(() => {
+    if (minutes)
       setMillis(minutesToMillis(minutes))
- },[minutes])
-  useEffect(()=>{
-    if(isPaused){
+  }, [minutes])
+
+  useEffect(() => {
+    if (isPaused) {
 
       return
     }
-      
-    interval.current=setInterval(countDown,1000)
 
-    return ()=>clearInterval(interval.current)
-  },[isPaused, minutes])
+    interval.current = setInterval(countDown, 1000)
+
+    return () => clearInterval(interval.current)
+  }, [isPaused])
 
   return (
     <View style={styles.container}>
