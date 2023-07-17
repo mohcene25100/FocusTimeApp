@@ -41,6 +41,7 @@ Built from scratch with React Native.</em>✨🚀</p>
 - React Native
 - React Navigation
 - React Native Paper
+- Styled Components
 - expo status bar
 - @expo/vector-icons
 - @react-native-async-storage
@@ -101,6 +102,18 @@ To build for iOS, use the following command:
 ```
 eas build -p ios --profile preview
 ```
+
+---
+
+## <p align="center">✨ Skills Learned ✨</p>
+
+- Proficient in React Native, with a solid understanding of its fundamentals
+- Experienced in working with Expo and Expo Go for developing mobile applications
+- Skilled in styling mobile apps using styled-components
+- Proficient in testing apps on multiple devices to ensure optimal performance
+- Knowledgeable in utilizing Async Storage for efficient data storage and retrieval
+- Familiar with best practices for organizing files and folders in a structured manner
+
 
 ---
 
