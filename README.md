@@ -1,8 +1,9 @@
 # <p align="center">FocusTime App</p>
 
 
-<p align="center"><img src="https://github.com/mohcene25100/iPark-App/blob/main/src/assets/splash_dark.png" alt="iPark Capture" style="max-width: 100% !important; height:900px">
-<img src="https://github.com/mohcene25100/iPark-App/blob/main/src/assets/home_page.png" alt="iPark Capture" style="max-width: 100% !important; height:900px"></p>
+<p align="center"><img src="https://github.com/mohcene25100/FocusTimeApp/blob/main/assets/home.jpg" alt="iPark Capture" style="max-width: 100% !important; height:900px">
+<img src="https://github.com/mohcene25100/FocusTimeApp/blob/main/assets/task.jpg" alt="iPark Capture" style="max-width: 100% !important; height:900px">
+<img src="https://github.com/mohcene25100/FocusTimeApp/blob/main/assets/history.jpg" alt="iPark Capture" style="max-width: 100% !important; height:900px"></p>
 <p align="center">✨🚀<em>FocusTime, A simple application built with React Native, lets you concentrate on specific task, boosting your efficiency and delivering impressive results. 
 <br>
 Built from scratch with React Native.</em>✨🚀</p>
@@ -41,7 +42,8 @@ Built from scratch with React Native.</em>✨🚀</p>
 - React Navigation
 - React Native Paper
 - expo status bar
-- Styled Components
+- @expo/vector-icons
+- @react-native-async-storage
 - ...
 
 ---
@@ -107,10 +109,10 @@ eas build -p ios --profile preview
 <br>
 <p align="center">I encourages contributions! Feel free to discuss any bug fixes/features in the issues section. And if you wish to work on this project:</p>
 
-1. Fork [this project](https://github.com/mohcene25100/FocusTime)
+1. Fork [this project](https://github.com/mohcene25100/FocusTimeApp)
 2. Create a branch (`git checkout -b new-branch`)
 3. Commit your changes (`git commit -am 'add new feature'`)
 4. Push to the branch (`git push origin new-branch`)
-5. [Submit a pull request!](https://github.com/mohcene25100/FocusTime/pull/new/master)
+5. [Submit a pull request!](https://github.com/mohcene25100/FocusTimeApp/pull/new/master)
 
 
