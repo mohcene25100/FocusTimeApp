@@ -1,9 +1,9 @@
 # <p align="center">FocusTime App</p>
 
 
-<p align="center"><img src="https://github.com/mohcene25100/FocusTimeApp/blob/main/assets/home.jpg" alt="iPark Capture" style="max-width: 100% !important; height:900px">
-<img src="https://github.com/mohcene25100/FocusTimeApp/blob/main/assets/task.jpg" alt="iPark Capture" style="max-width: 100% !important; height:900px">
-<img src="https://github.com/mohcene25100/FocusTimeApp/blob/main/assets/history.jpg" alt="iPark Capture" style="max-width: 100% !important; height:900px"></p>
+<p align="center"><img src="https://github.com/mohcene25100/FocusTimeApp/blob/main/assets/home.jpg" alt="FocusTime home" style="max-width: 100% !important; height:900px">
+<img src="https://github.com/mohcene25100/FocusTimeApp/blob/main/assets/task.jpg" alt="FocusTime task" style="max-width: 100% !important; height:900px">
+<img src="https://github.com/mohcene25100/FocusTimeApp/blob/main/assets/history.jpg" alt="FocusTime history" style="max-width: 100% !important; height:900px"></p>
 <p align="center">✨🚀<em>FocusTime, A simple application built with React Native, lets you concentrate on specific task, boosting your efficiency and delivering impressive results. 
 <br>
 Built from scratch with React Native.</em>✨🚀</p>
@@ -50,7 +50,7 @@ Built from scratch with React Native.</em>✨🚀</p>
 ---
 
 ## <p align="center">❓ How to use ❓</p>
-## Testing iPark App Locally
+## Testing FocusTime App Locally
 
 Before running the focusTime app locally, make sure to follow these steps:
 
@@ -75,7 +75,7 @@ npm start
 > **Note**
 > Make sure you have Node.js installed on your machine before running the commands
 
-🎉 By following these steps, you can test and run the iPark app locally on your machine. Enjoy exploring its features and functionalities! 🚀
+🎉 By following these steps, you can test and run the FocusTime app locally on your machine. Enjoy exploring its features and functionalities! 🚀
 
 ## Building the App
 
